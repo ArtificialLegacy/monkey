@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-const enableTrace bool = true
+const enableTrace bool = false
 
 var traceLevel int = 0
 
