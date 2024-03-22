@@ -87,7 +87,6 @@ func TestBangOperator(t *testing.T) {
 	}
 }
 
-/*
 func TestIfElseExpressions(t *testing.T) {
 	tests := []struct {
 		input    string
@@ -112,9 +111,7 @@ func TestIfElseExpressions(t *testing.T) {
 		}
 	}
 }
-*/
 
-/*
 func TestReturnStatements(t *testing.T) {
 	tests := []struct {
 		input    string
@@ -127,35 +124,35 @@ func TestReturnStatements(t *testing.T) {
 		{"if (10 > 1) { return 10; }", 10},
 		{
 			`
-if (10 > 1) {
-  if (10 > 1) {
-    return 10;
-  }
+				if (10 > 1) {
+					if (10 > 1) {
+						return 10;
+					}
 
-  return 1;
-}
-`,
+					return 1;
+				}
+				`,
+			10,
+		},
+		/*{
+			`
+				let f = fn(x) {
+					return x;
+					x + 10;
+				};
+				f(10);`,
 			10,
 		},
 		{
 			`
-let f = fn(x) {
-  return x;
-  x + 10;
-};
-f(10);`,
-			10,
-		},
-		{
-			`
-let f = fn(x) {
-   let result = x + 10;
-   return result;
-   return 10;
-};
-f(10);`,
+				let f = fn(x) {
+					let result = x + 10;
+					return result;
+					return 10;
+				};
+				f(10);`,
 			20,
-		},
+		},*/
 	}
 
 	for _, tt := range tests {
@@ -163,7 +160,6 @@ f(10);`,
 		testIntegerObject(t, evaluated, tt.expected)
 	}
 }
-*/
 
 /*
 func TestErrorHandling(t *testing.T) {
