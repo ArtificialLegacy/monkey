@@ -161,7 +161,6 @@ func TestReturnStatements(t *testing.T) {
 	}
 }
 
-/*
 func TestErrorHandling(t *testing.T) {
 	tests := []struct {
 		input           string
@@ -197,20 +196,20 @@ func TestErrorHandling(t *testing.T) {
 		},
 		{
 			`
-if (10 > 1) {
-  if (10 > 1) {
-    return true + false;
-  }
+				if (10 > 1) {
+					if (10 > 1) {
+						return true + false;
+					}
 
-  return 1;
-}
-`,
+					return 1;
+				}
+			`,
 			"unknown operator: BOOLEAN + BOOLEAN",
 		},
-		{
+		/*{
 			"foobar",
 			"identifier not found: foobar",
-		},
+		},*/
 	}
 
 	for _, tt := range tests {
@@ -229,7 +228,6 @@ if (10 > 1) {
 		}
 	}
 }
-*/
 
 /*
 func TestLetStatements(t *testing.T) {
