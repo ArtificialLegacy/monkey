@@ -134,7 +134,7 @@ func TestReturnStatements(t *testing.T) {
 				`,
 			10,
 		},
-		/*{
+		{
 			`
 				let f = fn(x) {
 					return x;
@@ -152,7 +152,7 @@ func TestReturnStatements(t *testing.T) {
 				};
 				f(10);`,
 			20,
-		},*/
+		},
 	}
 
 	for _, tt := range tests {
@@ -245,7 +245,6 @@ func TestLetStatements(t *testing.T) {
 	}
 }
 
-/*
 func TestFunctionObject(t *testing.T) {
 	input := "fn(x) { x + 2; };"
 
@@ -270,9 +269,7 @@ func TestFunctionObject(t *testing.T) {
 		t.Fatalf("body is not %q. got=%q", expectedBody, fn.Body.String())
 	}
 }
-*/
 
-/*
 func TestFunctionApplication(t *testing.T) {
 	tests := []struct {
 		input    string
@@ -290,26 +287,24 @@ func TestFunctionApplication(t *testing.T) {
 		testIntegerObject(t, testEval(tt.input), tt.expected)
 	}
 }
-*/
 
-/*
 func TestEnclosingEnvironments(t *testing.T) {
 	input := `
-let first = 10;
-let second = 10;
-let third = 10;
+		let first = 10;
+		let second = 10;
+		let third = 10;
 
-let ourFunction = fn(first) {
-  let second = 20;
+		let ourFunction = fn(first) {
+			let second = 20;
 
-  first + second + third;
-};
+			first + second + third;
+		};
 
-ourFunction(20) + first + second;`
+		ourFunction(20) + first + second;
+	`
 
 	testIntegerObject(t, testEval(input), 70)
 }
-*/
 
 func testEval(input string) object.Object {
 	l := lexer.New(input)
