@@ -1,6 +1,10 @@
 package evaluator
 
-import "github.com/ArtificialLegacy/monkey/pkg/object"
+import (
+	"fmt"
+
+	"github.com/ArtificialLegacy/monkey/pkg/object"
+)
 
 var builtins = map[string]*object.BuiltIn{
 	"len": {
@@ -91,6 +95,15 @@ var builtins = map[string]*object.BuiltIn{
 			newElements[length] = args[1]
 
 			return &object.Array{Elements: newElements}
+		},
+	},
+	"puts": {
+		Fn: func(args ...object.Object) object.Object {
+			for _, arg := range args {
+				fmt.Println(arg.Inspect())
+			}
+
+			return NULL
 		},
 	},
 }
